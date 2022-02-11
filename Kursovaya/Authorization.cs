@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Kursovaya
 {
+       
     public partial class Authorization : Form
     {
         string connStr = "server=caseum.ru;port=33333;user=st_3_8_19;database=st_3_8_19;password=15676267";
@@ -47,7 +48,6 @@ namespace Kursovaya
         {
             InitializeComponent();
         }
-
         private void Authorization_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);
@@ -88,5 +88,7 @@ namespace Kursovaya
         {
             textBox3.Text = sha256(textBox2.Text);
         }
+
+       
     }
 }
