@@ -28,23 +28,34 @@ namespace Kursovaya
             }
             return hash.ToString();
         }
-        public void GetUserInfo(string login)
+        public int Connection(string login, string password)
         {
-            conn.Open();
-            string sql = $"SELECT * FROM Auto WHERE login='{login}'";
-            MySqlCommand command = new MySqlCommand(sql, conn);
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            int a = 0;
+            try
             {
-                Auth.auth_id = reader[0].ToString();
-                Auth.auth_login = reader[1].ToString();
-                Auth.auth_role = Convert.ToInt32(reader[3].ToString());
-                Auth.auth_sotr = reader[4].ToString();
+                conn.Open();
+                //Выбор всех данных из таблицы Sotrudniki и их фильтрование по подходящим логину и паролю
+                string commandStr = $"SELECT count(*) FROM Sotrudniki WHERE login = '{login}' AND password = '{password}'";
+                MySqlCommand comm1 = new MySqlCommand(commandStr, conn);
+                int k = Convert.ToInt32(comm1.ExecuteScalar());
+                if (k != 0)
+                {
+                    //Выбор столбца s_status в зависимости от логина и пароля
+                    string commandStr2 = $"SELECT s_status FROM Sotrudniki WHERE login = '{login}' AND password = '{password}'";
+                    MySqlCommand comm2 = new MySqlCommand(commandStr2, conn);
+                    a = Convert.ToInt32(comm2.ExecuteScalar());
+                }
             }
-            reader.Close();
+            //Обработка исключений
+            catch
+            {
+
+            }
+            //Закрытие соединения
             conn.Close();
+            return a;
         }
-            public Authorization()
+        public Authorization()
         {
             InitializeComponent();
         }
@@ -52,31 +63,36 @@ namespace Kursovaya
         {
             conn = new MySqlConnection(connStr);
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void Uroven()
         {
-            string sql = "SELECT * FROM Auto WHERE login = @un and password= @up";
-            conn.Open();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand(sql, conn);
-            command.Parameters.Add("@un", MySqlDbType.VarChar, 25);
-            command.Parameters.Add("@up", MySqlDbType.VarChar, 25);
-            command.Parameters["@un"].Value = textBox1.Text;
-            command.Parameters["@up"].Value = sha256(textBox2.Text);
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            conn.Close();
-            if (table.Rows.Count > 0)
+            //Если возвращаемое значение a равняется 1(уровень доступа, то есть столбец s_status в БД), открывается форма меню сотрудника,
+            //если 2, то форма меню директора
+            if (Connection(textBox1.Text, textBox2.Text) == 1)
             {
-                Auth.auth = true;
-                GetUserInfo(textBox1.Text);
-                this.Close();
+                MessageBox.Show("Вы авторизированы как сотрудник");
+                //Скрытие данной формы и запуск следующей в зависимости от введёных данных
+                MainMenu1 me = new MainMenu1();
+                this.Hide();
+                me.ShowDialog();
+            }
+            else if (Connection(textBox1.Text, textBox2.Text) == 2)
+            {
+                MessageBox.Show("Вы авторизированы как директор");
+                MainMenu2 me = new MainMenu2();
+                this.Hide();
+                me.ShowDialog();
+
             }
             else
             {
-                MessageBox.Show("Неверные данные авторизации!");
+                MessageBox.Show("Неверные данные");
             }
+        }
+
+
+            private void button1_Click(object sender, EventArgs e)
+        {
+            Uroven();
         }
 
         private void button2_Click(object sender, EventArgs e)

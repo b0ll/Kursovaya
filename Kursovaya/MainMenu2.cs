@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Kursovaya
 {
-    public partial class Form1 : Form
+    public partial class MainMenu2 : Form
     {
-        public Form1()
+        public MainMenu2()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
