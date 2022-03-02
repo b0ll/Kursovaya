@@ -28,6 +28,10 @@ namespace Kursovaya
             }
             return hash.ToString();
         }
+        public Authorization()
+        {
+            InitializeComponent();
+        }
         public int Connection(string login, string password)
         {
             int a = 0;
@@ -55,10 +59,7 @@ namespace Kursovaya
             conn.Close();
             return a;
         }
-        public Authorization()
-        {
-            InitializeComponent();
-        }
+        
         private void Authorization_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);
