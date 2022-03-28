@@ -14,7 +14,7 @@ namespace Kursovaya
        
      public partial class Authorization : Form
     {
-        string connStr = "server=chuc.caseum.ru;port=44444;user=st_3_19_8;database=is_3_19_st8_KURS;password=59878228";
+        string connStr = "server=chuc.caseum.ru;port=33333;user=st_3_19_8;database=is_3_19_st8_KURS;password=59878228";
         MySqlConnection conn;
         static string sha256(string randomString)
         {
