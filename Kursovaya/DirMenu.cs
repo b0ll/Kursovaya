@@ -23,6 +23,11 @@ namespace Kursovaya
             me.ShowDialog();
             
         }
-       
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SellList sl = new SellList();
+            sl.ShowDialog();
+        }
     }
 }

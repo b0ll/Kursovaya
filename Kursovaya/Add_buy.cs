@@ -33,9 +33,6 @@ namespace Kursovaya
             {
                 conndb.Open();
                 {
-                    //Вставляем значения в таблицу Service_Rendering
-                  
-                   
                     try
                     {
                         string id = textBox1.Text;
