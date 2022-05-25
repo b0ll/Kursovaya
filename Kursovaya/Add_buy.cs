@@ -34,17 +34,19 @@ namespace Kursovaya
                 conndb.Open();
                 {
                     //Вставляем значения в таблицу Service_Rendering
-                    string commandStr = $"INSERT INTO Uslugi (Sotrudnik,Time,Tovar,Client,Cost) VALUES (@Sotrudnik,@Time,@Tovar,@Client,@Cost)";
-                    MySqlCommand command = new MySqlCommand(commandStr, conndb);
+                  
+                   
                     try
                     {
-                        //берём значение из текстбоксов,дататаймпикера и кидаем в базу данных
-                        command.Parameters.Add("@Sotrudnik", MySqlDbType.Text).Value = textBox2.Text;
-                        command.Parameters.Add("@Time", MySqlDbType.DateTime).Value = dateTimePicker1.Text;
-                        command.Parameters.Add("@Tovar", MySqlDbType.Text).Value = textBox3.Text;
-                        command.Parameters.Add("@Client", MySqlDbType.Text).Value = textBox4.Text;
-                        command.Parameters.Add("@Cost", MySqlDbType.Int32).Value = textBox5.Text;
-                        //Изменения данных в БД
+                        string id = textBox1.Text;
+                        string sotr = textBox2.Text;
+                        string tovar = textBox3.Text;
+                        string client = textBox4.Text;
+                        string cost = textBox5.Text;
+                        string time = dateTimePicker1.Value.ToString(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
+                        string update = $"INSERT INTO Uslugi (ID, Sotrudnik, Tovar, Client, Cost, Time)" +
+                        $" VALUES ('{id}','{sotr}', '{tovar}', '{client}', '{cost}', '{time}')";
+                        MySqlCommand command = new MySqlCommand(update, conndb); 
                         command.ExecuteNonQuery();
 
                     }
