@@ -19,8 +19,11 @@ namespace Kursovaya
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Sotr_data_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Sotrudniki so = new Sotrudniki();
+            so.ShowDialog();
+            this.Close();
 
         }
 
@@ -42,6 +45,36 @@ namespace Kursovaya
                     {
                         conndb.Open();
                         string commandStr = $"UPDATE Sotrudniki SET login = '{k}' WHERE ID = '{a}'";
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(commandStr, conndb);
+                        DataTable dTable = new DataTable();
+                        adapter.Fill(dTable);
+                    }
+                    catch
+                    {
+
+                    }
+                    conndb.Close();
+                }
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            {
+
+                string a = textBox3.Text;
+                string k = textBox2.Text;
+                if (textBox3.Text == "")
+                {
+                    MessageBox.Show("Введите данные");
+                }
+                else
+                {
+                    try
+                    {
+                        conndb.Open();
+                        string commandStr = $"UPDATE Sotrudniki SET password = '{k}' WHERE ID = '{a}'";
                         MySqlDataAdapter adapter = new MySqlDataAdapter(commandStr, conndb);
                         DataTable dTable = new DataTable();
                         adapter.Fill(dTable);

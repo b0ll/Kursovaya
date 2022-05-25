@@ -17,7 +17,7 @@ namespace Kursovaya
            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Authorization());
+            Application.Run(new Add_buy());
         }
     }
     static class Auth

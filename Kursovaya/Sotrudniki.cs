@@ -27,6 +27,16 @@ namespace Kursovaya
         {
             Change_data();
         }
-       
+        private void Sotrudniki_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DirMenu dm = new DirMenu();
+            this.Hide();
+            dm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

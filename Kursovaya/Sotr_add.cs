@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Kursovaya
 {
-    public partial class DirMenu : Form
+    public partial class Sotr_add : Form
     {
-        public DirMenu()
+        public Sotr_add()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Sotrudniki me = new Sotrudniki();
-            me.ShowDialog();
-            
-        }
-       
     }
 }

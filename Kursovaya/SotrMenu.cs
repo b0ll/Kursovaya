@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Library1;
 
 namespace Kursovaya
 {
@@ -20,6 +22,13 @@ namespace Kursovaya
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Add_buy ab = new Add_buy();
+            ab.ShowDialog();
+            this.Hide();
         }
     }
 }
