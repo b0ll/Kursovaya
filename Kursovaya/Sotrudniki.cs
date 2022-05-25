@@ -10,16 +10,23 @@ using System.Windows.Forms;
 
 namespace Kursovaya
 {
-    public partial class MainMenu1 : Form
+    public partial class Sotrudniki : Form
     {
-        public MainMenu1()
+        public Sotrudniki()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Change_data()
         {
-
+            Sotr_data data = new Sotr_data();
+            data.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Change_data();
+        }
+       
     }
 }

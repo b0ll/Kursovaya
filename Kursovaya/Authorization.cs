@@ -72,14 +72,14 @@ namespace Kursovaya
             {
                 MessageBox.Show("Вы авторизированы как сотрудник");
                 //Скрытие данной формы и запуск следующей в зависимости от введёных данных
-                MainMenu1 me = new MainMenu1();
+                SotrMenu me = new SotrMenu();
                 this.Hide();
                 me.ShowDialog();
             }
             else if (Connection(textBox1.Text, textBox2.Text) == 2)
             {
                 MessageBox.Show("Вы авторизированы как директор");
-                MainMenu2 me = new MainMenu2();
+                DirMenu me = new DirMenu();
                 this.Hide();
                 me.ShowDialog();
 
