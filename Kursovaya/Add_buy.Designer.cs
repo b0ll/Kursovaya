@@ -111,7 +111,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 9;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+    
             // 
             // textBox4
             // 
@@ -175,7 +175,7 @@
             this.Name = "Add_buy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добаление данных о продаже";
-            this.Load += new System.EventHandler(this.Add_buy_Load);
+         
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -60,15 +60,8 @@ namespace Kursovaya
             }
         }
 
-        private void Add_buy_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -78,6 +71,7 @@ namespace Kursovaya
         private void Add_buy_FormClosing(object sender, FormClosingEventArgs e)
         {
             SotrMenu sm = new SotrMenu();
+            sm.ShowDialog();
             this.Hide();
         }
     }

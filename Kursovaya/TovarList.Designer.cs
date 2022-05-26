@@ -59,7 +59,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(762, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+      
             // 
             // toolStripButton1
             // 
@@ -76,7 +76,7 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(85, 22);
             this.toolStripLabel1.Text = "Всего товаров";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+         
             // 
             // toolStripLabel2
             // 
@@ -89,7 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(762, 458);
+            this.ClientSize = new System.Drawing.Size(762, 448);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

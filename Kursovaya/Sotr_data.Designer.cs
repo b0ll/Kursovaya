@@ -123,7 +123,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Sotr_data";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sotr_data";
+            this.Text = "Смена данных";
             this.ResumeLayout(false);
             this.PerformLayout();
 
