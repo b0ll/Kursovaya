@@ -12,28 +12,27 @@ using Library1;
 
 namespace Kursovaya
 {
-    public partial class SellList : Form
+    public partial class Sotr_List : Form
     {
-  
-        MySqlConnection conndb;
-        
-        private MySqlDataAdapter MyDA = new MySqlDataAdapter();
-
-        private BindingSource bSource = new BindingSource();
-        
-        private DataSet ds = new DataSet();
-        
-        private DataTable table = new DataTable();
-        
-        string id_selected_rows = "0";
-        public SellList()
+        public Sotr_List()
         {
             InitializeComponent();
         }
-        public void GetSellList()
+
+        MySqlConnection conndb;
+
+        private MySqlDataAdapter MyDA = new MySqlDataAdapter();
+
+        private BindingSource bSource = new BindingSource();
+
+        private DataSet ds = new DataSet();
+
+        private DataTable table = new DataTable();
+
+        public void GetSotrList()
         {
             //Запрос для вывода строк в БД
-            string commandStr = "SELECT ID AS 'ID', Sotrudnik AS 'Сотрудник', Tovar AS 'Товар', Client AS 'Клиент', Cost AS 'Выручка' FROM Uslugi";
+            string commandStr = "SELECT ID AS 'ID', s_fio AS 'ФИО', s_post AS 'Должность', s_status AS 'Статус', login AS 'Логин', password AS 'Пароль' FROM Sotrudniki";
             //Открываем соединение
             conndb.Open();
             //Объявляем команду, которая выполнить запрос в соединении conn
@@ -48,17 +47,16 @@ namespace Kursovaya
             conndb.Close();
             //Отражаем количество записей в ДатаГриде
             int count_rows = dataGridView1.RowCount - 1;
-            
+
         }
 
-        private void SellList_Load(object sender, EventArgs e)
+        private void Sotr_List_Load(object sender, EventArgs e)
         {
-            
             string connStr = "server=chuc.caseum.ru;port=33333;user=st_3_19_8;database=is_3_19_st8_KURS;password=59878228";
             // создаём объект для подключения к БД
             conndb = new MySqlConnection(connStr);
             //Вызываем метод для заполнение дата Грида
-            GetSellList();
+            GetSotrList();
             //Видимость полей в гриде
             dataGridView1.Columns[0].Visible = true;
             dataGridView1.Columns[1].Visible = true;
@@ -87,11 +85,6 @@ namespace Kursovaya
             dataGridView1.RowHeadersVisible = false;
             //Показываем заголовки столбцов
             dataGridView1.ColumnHeadersVisible = true;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

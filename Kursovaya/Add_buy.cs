@@ -73,5 +73,11 @@ namespace Kursovaya
         {
             add_data();
         }
+
+        private void Add_buy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SotrMenu sm = new SotrMenu();
+            this.Hide();
+        }
     }
 }

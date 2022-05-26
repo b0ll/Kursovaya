@@ -28,7 +28,12 @@ namespace Kursovaya
         {
             Add_buy ab = new Add_buy();
             ab.ShowDialog();
-            this.Hide();
+       
+        }
+        private void SotrMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Authorization au = new Authorization();
+            au.ShowDialog();
         }
     }
 }

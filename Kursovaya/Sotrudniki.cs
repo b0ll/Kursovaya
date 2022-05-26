@@ -17,7 +17,7 @@ namespace Kursovaya
             InitializeComponent();
         }
 
-        public void Change_data()
+        public void Sotr_Data()
         {
             Sotr_data data = new Sotr_data();
             data.ShowDialog();
@@ -25,7 +25,7 @@ namespace Kursovaya
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Change_data();
+            Sotr_Data();
         }
         private void Sotrudniki_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -36,7 +36,16 @@ namespace Kursovaya
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Sotr_addDel sa = new Sotr_addDel();
+            this.Hide();
+            sa.ShowDialog();
+       }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Sotr_List sl = new Sotr_List();
+            this.Hide();
+            sl.ShowDialog();
         }
     }
 }

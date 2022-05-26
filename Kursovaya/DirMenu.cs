@@ -16,6 +16,10 @@ namespace Kursovaya
         {
             InitializeComponent();
         }
+        private void DirMenu_FormClosing(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -29,5 +33,12 @@ namespace Kursovaya
             SellList sl = new SellList();
             sl.ShowDialog();
         }
+        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+      
     }
 }
