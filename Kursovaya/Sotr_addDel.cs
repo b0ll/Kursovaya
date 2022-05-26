@@ -89,7 +89,7 @@ namespace Kursovaya
                     }
                 }
             }
-        }
+        } 
         private void button1_Click(object sender, EventArgs e)
         {
             add_sotrudnik();
