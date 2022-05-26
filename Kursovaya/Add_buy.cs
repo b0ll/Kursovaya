@@ -21,7 +21,7 @@ namespace Kursovaya
 
         MySqlConnection conndb = ConnDB.connection;
 
-        public void add_data()
+        public void add_Buy()
         {
 
             //Проверка на пустоту
@@ -53,6 +53,7 @@ namespace Kursovaya
                     }
                     finally
                     {
+                        MessageBox.Show("Данные о продаже добавлены");
                         conndb.Close();
                     }
                 }
@@ -71,7 +72,7 @@ namespace Kursovaya
 
         private void button1_Click(object sender, EventArgs e)
         {
-            add_data();
+            add_Buy();
         }
 
         private void Add_buy_FormClosing(object sender, FormClosingEventArgs e)

@@ -25,7 +25,6 @@ namespace Kursovaya
         
         private DataTable table = new DataTable();
         
-        string id_selected_rows = "0";
         public SellList()
         {
             InitializeComponent();
@@ -48,7 +47,7 @@ namespace Kursovaya
             conndb.Close();
             //Отражаем количество записей в ДатаГриде
             int count_rows = dataGridView1.RowCount - 1;
-            
+            toolStripLabel2.Text = (count_rows).ToString();
         }
 
         private void SellList_Load(object sender, EventArgs e)
@@ -92,6 +91,17 @@ namespace Kursovaya
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            table.Clear();
+            GetSellList();
         }
     }
 }

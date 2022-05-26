@@ -35,5 +35,22 @@ namespace Kursovaya
             Authorization au = new Authorization();
             au.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TovarList tl = new TovarList();
+            tl.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Add_tovar at = new Add_tovar();
+            at.ShowDialog();
+        }
     }
 }

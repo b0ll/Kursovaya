@@ -53,6 +53,10 @@ namespace Kursovaya
                     {
 
                     }
+                    finally
+                    {
+                        MessageBox.Show("Данные о сотруднике изменены");
+                    }
                     conndb.Close();
                 }
 
@@ -82,6 +86,10 @@ namespace Kursovaya
                     catch
                     {
 
+                    }
+                    finally
+                    {
+                        MessageBox.Show("Данные о сотруднике изменены");
                     }
                     conndb.Close();
                 }
