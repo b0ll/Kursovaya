@@ -103,10 +103,7 @@ namespace Kursovaya
             Application.Exit();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            textBox3.Text = sha256(textBox2.Text);
-        }
+
               
         private void Authorization_FormClosing(object sender, FormClosingEventArgs e)
         {
